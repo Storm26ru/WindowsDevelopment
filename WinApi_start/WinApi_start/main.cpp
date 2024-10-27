@@ -18,7 +18,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_INITDIALOG:
 	{
 		HICON hicon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1));
-		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hicon);
+		SendMessage(hwnd, WM_SETICON, 1, (LPARAM)hicon);
 	}
 		break;
 	case WM_COMMAND:
