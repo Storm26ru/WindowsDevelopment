@@ -1,5 +1,6 @@
 ﻿#include<Windows.h>
 #include"resource.h"
+#include<CommCtrl.h>
 //#define MESSAGE_BOX
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -27,7 +28,10 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_INITDIALOG:
 	{
 		HICON hIcon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1));
+		HWND hEdit = GetDlgItem(hwnd, IDC_EDIT1);
 		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hIcon);
+		//SendMessage(hEdit, EM_SETCUEBANNER,FALSE, (LPARAM) "Введите текст");
+		//Edit_SetCueBannerText(hEdit, "Введите текст");
 	}
 	break;
 	case WM_COMMAND:
