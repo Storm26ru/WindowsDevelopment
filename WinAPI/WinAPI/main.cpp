@@ -1,6 +1,6 @@
 ﻿#include<Windows.h>
 #include"resource.h"
-#include<CommCtrl.h>
+//#include<CommCtrl.h>
 #include<windowsx.h>
 //#define MESSAGE_BOX
 
@@ -31,7 +31,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		HICON hIcon = LoadIcon(GetModuleHandle(NULL), MAKEINTRESOURCE(IDI_ICON1));
 		HWND hEdit = GetDlgItem(hwnd, IDC_EDIT1);
 		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hIcon);
-		SetWindowText(hEdit, "Введите текст");
+		SetWindowText(hEdit, "Inter text");
 
 		
 	}
@@ -40,7 +40,10 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		switch (LOWORD(wParam))
 		{
 		case IDC_EDIT1:
-			if(HIWORD(wParam)==EN_SETFOCUS&&strcmp())//https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/strcmp-wcscmp-mbscmp?view=msvc-170
+			if (HIWORD(wParam) == EN_SETFOCUS) SetWindowText((HWND)lParam, "");
+				//&&strcmp())//https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/strcmp-wcscmp-mbscmp?view=msvc-170
+			if (HIWORD(wParam) == EN_KILLFOCUS&&SendMessage((HWND)lParam,EM_LINELENGTH,0,0)==0) SetWindowText((HWND)lParam, "Inter text");
+
 			break;
 		case IDC_BUTTON1:
 		{
