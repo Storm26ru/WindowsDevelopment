@@ -4,6 +4,8 @@
 #include<windowsx.h>
 //#define MESSAGE_BOX
 
+
+
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInst, LPSTR lpCmdLine, INT nCmdShow)
@@ -40,18 +42,23 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		switch (LOWORD(wParam))
 		{
 		case IDC_EDIT1:
-			if (HIWORD(wParam) == EN_SETFOCUS) SetWindowText((HWND)lParam, "");
-				//&&strcmp())//https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/strcmp-wcscmp-mbscmp?view=msvc-170
-			if (HIWORD(wParam) == EN_KILLFOCUS&&SendMessage((HWND)lParam,EM_LINELENGTH,0,0)==0) SetWindowText((HWND)lParam, "Inter text");
-
+		{	HWND hChek = GetDlgItem(hwnd, IDC_CHECK1);
+			if (HIWORD(wParam) == EN_SETFOCUS && SendMessage(hChek, BM_GETCHECK, 0, 0) != BST_CHECKED)
+			{
+				SetWindowText((HWND)lParam, "");
+				SendMessage(hChek,BM_SETCHECK,BST_CHECKED,0);
+			}
+			if (HIWORD(wParam) == EN_KILLFOCUS && SendMessage((HWND)lParam, EM_LINELENGTH, 0, 0) == 0) SetWindowText((HWND)lParam, "Inter text");
+		}
 			break;
 		case IDC_BUTTON1:
 		{
 			HWND hEdit1 = GetDlgItem(hwnd, IDC_EDIT1);
 			HWND hEdit2 = GetDlgItem(hwnd, IDC_EDIT2);
+			HWND hChek = GetDlgItem(hwnd, IDC_CHECK1);
 		    INT SIZE =  SendMessage(hEdit1, EM_LINELENGTH, 0, 0);
 			CHAR* bufer = new CHAR[SIZE + 1];
-			//*((LPWORD)bufer) = SIZE;
+			SendMessage(hChek,BM_SETCHECK,BST_UNCHECKED,0);
 			SendMessage(hEdit1, EM_GETLINE,0,(LPARAM)bufer);
 			bufer[SIZE] = 0;
 			SetWindowText(hEdit2, bufer);
