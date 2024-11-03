@@ -34,8 +34,6 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		HWND hEdit = GetDlgItem(hwnd, IDC_EDIT1);
 		SendMessage(hwnd, WM_SETICON, 0, (LPARAM)hIcon);
 		SetWindowText(hEdit, "Inter text");
-
-		
 	}
 	break;
 	case WM_COMMAND:
@@ -48,7 +46,11 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				SetWindowText((HWND)lParam, "");
 				SendMessage(hChek,BM_SETCHECK,BST_CHECKED,0);
 			}
-			if (HIWORD(wParam) == EN_KILLFOCUS && SendMessage((HWND)lParam, EM_LINELENGTH, 0, 0) == 0) SetWindowText((HWND)lParam, "Inter text");
+			if (HIWORD(wParam) == EN_KILLFOCUS && SendMessage((HWND)lParam, EM_LINELENGTH, 0, 0) == 0)
+			{
+				SetWindowText((HWND)lParam, "Inter text");
+				SendMessage(hChek,BM_SETCHECK,BST_UNCHECKED,0);
+			}
 		}
 			break;
 		case IDC_BUTTON1:

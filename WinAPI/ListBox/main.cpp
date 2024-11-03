@@ -5,6 +5,7 @@
 
 CONST CHAR* init_value[] = { "This","is", "my","first","List","Box"};
 BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
@@ -32,6 +33,15 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
+		case IDC_BUTTON1: // Delete
+		{
+			HWND hList = GetDlgItem(hWnd, IDC_LIST1);
+			SendMessage(hList, LB_DELETESTRING, SendMessage(hList, LB_GETCURSEL, 0, 0), 0);
+			break;
+		}
+		case IDC_BUTTON2: //Add
+			DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG2), hWnd, DlgProcAdd, 0);
+			break;
 		case IDOK: 
 		{
 			HWND hList = GetDlgItem(hWnd, IDC_LIST1);
@@ -50,7 +60,33 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		EndDialog(hWnd, 0);
 		break;
 	}
-
-
+	return FALSE;
+}
+BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+	case WM_INITDIALOG:
+		SetFocus(GetDlgItem(hWnd, IDC_EDIT1));
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDOK:
+		{
+			INT SIZE = SendMessage(GetDlgItem(hWnd, IDC_EDIT1), EM_LINELENGTH, 0, 0) + 1;
+			CHAR* bufer = new CHAR[SIZE];
+			SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_GETTEXT, SIZE, (LPARAM) bufer);
+			SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_ADDSTRING, 0, (LPARAM)bufer);
+			delete[] bufer;
+			EndDialog(hWnd, 0);
+		}
+		break;
+		case IDCANCEL: EndDialog(hWnd, 0); break;
+		}
+		break;
+	case WM_CLOSE:
+		EndDialog(hWnd, 0);
+		break;
+	}
 	return FALSE;
 }
