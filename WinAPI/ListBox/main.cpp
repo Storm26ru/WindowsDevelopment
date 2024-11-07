@@ -76,9 +76,13 @@ BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			INT SIZE = SendMessage(GetDlgItem(hWnd, IDC_EDIT1), EM_LINELENGTH, 0, 0) + 1;
 			CHAR* bufer = new CHAR[SIZE];
 			SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_GETTEXT, SIZE, (LPARAM) bufer);
-			SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_ADDSTRING, 0, (LPARAM)bufer);
-			delete[] bufer;
-			EndDialog(hWnd, 0);
+			if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRING, -1, (LPARAM)bufer) == LB_ERR)
+			{
+				SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_ADDSTRING, 0, (LPARAM)bufer);
+				delete[] bufer;
+				EndDialog(hWnd, 0);
+			}
+			else MessageBox(hWnd, "Такой элемент уже есть", "Info", MB_OK | MB_ICONINFORMATION);
 		}
 		break;
 		case IDCANCEL: EndDialog(hWnd, 0); break;
