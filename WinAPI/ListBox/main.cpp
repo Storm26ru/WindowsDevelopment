@@ -6,6 +6,7 @@
 CONST CHAR* init_value[] = { "This","is", "my","first","List","Box"};
 BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK DlgProcChange(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
@@ -33,6 +34,11 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_COMMAND:
 		switch (LOWORD(wParam))
 		{
+		case IDC_LIST1:
+			if (HIWORD(wParam) == LBN_DBLCLK)
+			{
+				DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG2), hWnd, DlgProcChange, 0);
+			}break;
 		case IDC_BUTTON1: // Delete
 		{
 			HWND hList = GetDlgItem(hWnd, IDC_LIST1);
@@ -79,10 +85,10 @@ BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRING, -1, (LPARAM)bufer) == LB_ERR)
 			{
 				SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_ADDSTRING, 0, (LPARAM)bufer);
-				delete[] bufer;
 				EndDialog(hWnd, 0);
 			}
 			else MessageBox(hWnd, "Такой элемент уже есть", "Info", MB_OK | MB_ICONINFORMATION);
+			delete[] bufer;
 		}
 		break;
 		case IDCANCEL: EndDialog(hWnd, 0); break;
@@ -92,5 +98,27 @@ BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		EndDialog(hWnd, 0);
 		break;
 	}
+	return FALSE;
+}
+BOOL CALLBACK DlgProcChange(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	switch (uMsg)
+	{
+	case WM_INITDIALOG:
+	{
+		SetFocus(GetDlgItem(hWnd, IDC_EDIT1));
+		SendMessage(hWnd, WM_SETTEXT, 0, (LPARAM)"Добавить");
+		SendMessage(GetDlgItem(hWnd, IDOK), WM_SETTEXT, 0, (LPARAM)"Изменить");
+		CONST INT SIZE = 256;
+		CHAR bufer[SIZE]{};
+		SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETTEXT, SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETCURSEL, 0, 0), (LPARAM)bufer);
+		SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_SETTEXT, 0, (LPARAM)bufer);
+	}
+
+		break;
+	case WM_COMMAND:break;
+	case WM_CLOSE: EndDialog(hWnd, 0);
+	}
+
 	return FALSE;
 }

@@ -53,7 +53,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 		}
 			break;
-		case IDC_BUTTON1:
+		case IDC_BUTTON1:// Copy
 		{
 			HWND hEdit1 = GetDlgItem(hwnd, IDC_EDIT1);
 			HWND hEdit2 = GetDlgItem(hwnd, IDC_EDIT2);

@@ -50,16 +50,26 @@ END
 // Dialog
 //
 
-IDD_DIALOG1 DIALOGEX 0, 0, 309, 100
+IDD_DIALOG1 DIALOGEX 0, 0, 281, 146
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Диалоговое окно"
+CAPTION "ListBox"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,198,79,50,14
-    PUSHBUTTON      "E&xit",IDCANCEL,252,79,50,14
-    PUSHBUTTON      "Copy",IDC_BUTTON1,7,79,50,14
-    EDITTEXT        IDC_EDIT1,7,15,295,16,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,7,39,295,16,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,169,126,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,223,126,50,14
+    LISTBOX         IDC_LIST1,7,7,267,96,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Delete",IDC_BUTTON1,7,125,50,14
+    PUSHBUTTON      "Add",IDC_BUTTON2,62,125,50,14
+END
+
+IDD_DIALOG2 DIALOGEX 0, 0, 229, 58
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Add string"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,121,37,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,172,37,50,14
+    EDITTEXT        IDC_EDIT1,7,7,215,14,ES_AUTOHSCROLL
 END
 
 
@@ -74,9 +84,17 @@ BEGIN
     IDD_DIALOG1, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 302
+        RIGHTMARGIN, 274
         TOPMARGIN, 7
-        BOTTOMMARGIN, 93
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_DIALOG2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 222
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -92,17 +110,10 @@ BEGIN
     0
 END
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_ICON1               ICON                    "ico\\Web_22320.ico"
-
-IDI_ICON4               ICON                    "ico\\burn_128x128_43372.ico"
+IDD_DIALOG2 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 #endif    // Russian (Russia) resources
 /////////////////////////////////////////////////////////////////////////////
