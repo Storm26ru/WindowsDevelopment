@@ -35,6 +35,7 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		switch (LOWORD(wParam))
 		{
 		case IDC_LIST1:
+			
 			if (HIWORD(wParam) == LBN_DBLCLK)
 			{
 				DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DIALOG2), hWnd, DlgProcChange, 0);
@@ -57,8 +58,11 @@ BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			INT i = SendMessage(hList, LB_GETCURSEL, 0, 0);
 			SendMessage(hList, LB_GETTEXT, i, (LPARAM)sz_bufer);
 			sprintf(sz_message, "Вы выбрали пункт №%i со значением \"%s\".", i, sz_bufer);
-			MessageBox(hWnd, sz_message, "Info", MB_OK | MB_ICONINFORMATION); break;
-		}
+			MessageBox(hWnd, sz_message, "Info", MB_OK | MB_ICONINFORMATION);
+		}break;
+		/*case WM_KEYDOWN:
+			MessageBox(hWnd, "DELETE pressed", "Info", MB_OK | MB_ICONINFORMATION);
+			break;*/
 		case IDCANCEL: EndDialog(hWnd, 0); break;
 		}
 		break;
@@ -111,12 +115,26 @@ BOOL CALLBACK DlgProcChange(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		SendMessage(GetDlgItem(hWnd, IDOK), WM_SETTEXT, 0, (LPARAM)"Изменить");
 		CONST INT SIZE = 256;
 		CHAR bufer[SIZE]{};
-		SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETTEXT, SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETCURSEL, 0, 0), (LPARAM)bufer);
+		SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETTEXT, 
+			SendMessage(GetDlgItem(GetParent(hWnd),IDC_LIST1), LB_GETCURSEL, 0, 0), (LPARAM)bufer);
 		SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_SETTEXT, 0, (LPARAM)bufer);
-	}
-
+	}break;
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDOK:
+			CONST INT SIZE = 256;
+			CHAR bufer[SIZE]{};
+			SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_GETTEXT, SIZE, (LPARAM)bufer);
+			INT i = SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_GETCURSEL, 0, 0);
+			if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRING, -1, (LPARAM)bufer) == LB_ERR)
+			{
+				SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_DELETESTRING, i, (LPARAM)bufer);
+				SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_INSERTSTRING,i, (LPARAM)bufer);
+			}
+			else MessageBox(hWnd, "Такое вхождение уже есть", "Info", MB_OK | MB_ICONINFORMATION);
+		}
 		break;
-	case WM_COMMAND:break;
 	case WM_CLOSE: EndDialog(hWnd, 0);
 	}
 
