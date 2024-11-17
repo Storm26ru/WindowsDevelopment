@@ -5,14 +5,34 @@
 
 CONST CHAR* init_bufer[] = { "This","is","my","first","Combo","Box" };
 BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK DlgProc1(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, INT nCmdShow)
 {
-	DialogBoxParam(hInstance,MAKEINTRESOURCE(IDD_DIALOG1),NULL,DlgProc,0) ;
-
+	//DialogBoxParam(hInstance,MAKEINTRESOURCE(IDD_DIALOG1),NULL,DlgProc,0) ;
+	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG2), NULL, DlgProc1, 0);
 	return 0;
 }
 
+BOOL CALLBACK DlgProc1(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	RegisterHotKey(hWnd, 1, 0, VK_DELETE);
+	RegisterHotKey(hWnd, 2, 0, VK_RETURN);
+	switch (uMsg)
+	{
+	case WM_HOTKEY:
+		MessageBox(hWnd, "Получилось", "Info", 0); break;
+	/*case WM_KEYDOWN:
+		if (wParam == VK_DELETE) MessageBox(hWnd, "Получилось", "Info", 0); break;*/
+	case WM_CLOSE: EndDialog(hWnd, 0);
+
+
+	}
+
+
+
+	return FALSE;
+}
 BOOL CALLBACK DlgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)

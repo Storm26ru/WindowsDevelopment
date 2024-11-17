@@ -8,6 +8,7 @@ INT WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	
 	//MessageBox(NULL, "Hellow WinApi\n Это окно сообщения", "Info", MB_ABORTRETRYIGNORE|MB_HELP|MB_ICONSTOP|MB_SYSTEMMODAL);
 	DialogBoxParam(hInstance, MAKEINTRESOURCE(IDD_DIALOG1), NULL, DlgProc, 0);
+	
 	return 0;
 }
 
