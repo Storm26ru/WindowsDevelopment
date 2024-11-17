@@ -95,7 +95,7 @@ BOOL CALLBACK DlgProcAdd(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			}
 			CHAR* bufer = new CHAR[SIZE];
 			SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_GETTEXT, SIZE, (LPARAM)bufer);
-			if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRING, -1, (LPARAM)bufer) == LB_ERR)
+			if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRINGEXACT, -1, (LPARAM)bufer) == LB_ERR)
 			{
 				SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_ADDSTRING, 0, (LPARAM)bufer);
 				EndDialog(hWnd, 0);
@@ -131,15 +131,15 @@ BOOL CALLBACK DlgProcChange(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 		case IDOK:
 		{	if (SendMessage(GetDlgItem(hWnd, IDC_EDIT1), EM_LINELENGTH, 0, 0) == 0)
-		{
-			MessageBox(hWnd, "Введите значение", "Info", MB_OK | MB_ICONINFORMATION);
-			break;
-		}
+			{
+				MessageBox(hWnd, "Введите значение", "Info", MB_OK | MB_ICONINFORMATION);
+				break;
+			}
 		CONST INT SIZE = 256;
 		CHAR bufer[SIZE]{};
 		SendMessage(GetDlgItem(hWnd, IDC_EDIT1), WM_GETTEXT, SIZE, (LPARAM)bufer);
 		INT i = SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_GETCURSEL, 0, 0);
-		if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRING, -1, (LPARAM)bufer) == LB_ERR)
+		if (SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_FINDSTRINGEXACT, -1, (LPARAM)bufer) == LB_ERR)
 		{
 			SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_DELETESTRING, i, (LPARAM)bufer);
 			SendMessage(GetDlgItem(GetParent(hWnd), IDC_LIST1), LB_INSERTSTRING, i, (LPARAM)bufer);
