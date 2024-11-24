@@ -70,18 +70,28 @@ INT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		{
 		case HTTOPRIGHT:
 		case HTBOTTOMLEFT:
-			SetCursor(hSizeNESW); break;
+		{
+			SetCursor(hSizeNESW); return TRUE;
+		}
 		case HTTOPLEFT:
 		case HTBOTTOMRIGHT:
-			SetCursor(hSizeNWSE); break;
+		{
+			SetCursor(hSizeNWSE); return TRUE;
+		}
 		case HTLEFT:
 		case HTRIGHT:
-			SetCursor(hSizeWE); break;
+		{
+			SetCursor(hSizeWE); return TRUE;
+		}
 		case HTTOP:
 		case HTBOTTOM:
-			SetCursor(hSizeNS); break;
+		{
+			SetCursor(hSizeNS); return TRUE;
+		}
 		default:
-			SetCursor(hArrow); 
+		{
+			SetCursor(hArrow); return TRUE;
+		}
 		}break;
 	case WM_MOVE:
 	case WM_SIZE:
