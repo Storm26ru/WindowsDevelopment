@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainWindow", "MainWindow\Ma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RecourceOnlyDLL", "RecourceOnlyDLL\RecourceOnlyDLL.vcxproj", "{34C23B1F-33C3-486E-9A6F-5FA179EE8101}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FontDLL", "FontDLL\FontDLL.vcxproj", "{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{34C23B1F-33C3-486E-9A6F-5FA179EE8101}.Release|x64.Build.0 = Release|x64
 		{34C23B1F-33C3-486E-9A6F-5FA179EE8101}.Release|x86.ActiveCfg = Release|Win32
 		{34C23B1F-33C3-486E-9A6F-5FA179EE8101}.Release|x86.Build.0 = Release|Win32
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Debug|x64.ActiveCfg = Debug|x64
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Debug|x64.Build.0 = Debug|x64
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Debug|x86.ActiveCfg = Debug|Win32
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Debug|x86.Build.0 = Debug|Win32
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Release|x64.ActiveCfg = Release|x64
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Release|x64.Build.0 = Release|x64
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Release|x86.ActiveCfg = Release|Win32
+		{D393DF59-400A-42BC-A3A6-2AC0DA32B25C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

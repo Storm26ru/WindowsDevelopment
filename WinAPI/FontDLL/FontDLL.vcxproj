@@ -18,38 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Resource.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="ButtonBMP\square_blue\button_0.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_1.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_2.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_3.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_4.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_5.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_6.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_7.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_8.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_9.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_aster.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_bsp.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_clr.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_equal.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_minus.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_plus.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_point.bmp" />
-    <Image Include="ButtonBMP\square_blue\button_slash.bmp" />
-    <Image Include="ico\сalculator.ico" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{34c23b1f-33c3-486e-9a6f-5fa179ee8101}</ProjectGuid>
-    <RootNamespace>RecourceOnlyDLL</RootNamespace>
+    <ProjectGuid>{d393df59-400a-42bc-a3a6-2ac0da32b25c}</ProjectGuid>
+    <RootNamespace>FontDLL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +86,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;RECOURCEONLYDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;FONTDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -129,7 +102,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;RECOURCEONLYDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;FONTDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -145,7 +118,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;RECOURCEONLYDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;FONTDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -161,7 +134,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;RECOURCEONLYDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;FONTDLL_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -173,6 +146,17 @@
       <NoEntryPoint>true</NoEntryPoint>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\Calc_2.ttf" />
+    <Font Include="Fonts\MOSCOW2024.otf" />
+    <Font Include="Fonts\Pocket_Calculator.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
