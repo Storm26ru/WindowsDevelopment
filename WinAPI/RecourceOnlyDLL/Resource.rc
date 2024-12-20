@@ -67,41 +67,41 @@ END
 // Bitmap
 //
 
-IDB_BUTTON_0            BITMAP                  "ButtonBMP\\square_blue\\button_0.bmp"
-
-IDB_BUTTON_1            BITMAP                  "ButtonBMP\\square_blue\\button_1.bmp"
-
-IDB_BUTTON_2            BITMAP                  "ButtonBMP\\square_blue\\button_2.bmp"
-
-IDB_BUTTON_3            BITMAP                  "ButtonBMP\\square_blue\\button_3.bmp"
-
-IDB_BUTTON_4            BITMAP                  "ButtonBMP\\square_blue\\button_4.bmp"
-
-IDB_BUTTON_5            BITMAP                  "ButtonBMP\\square_blue\\button_5.bmp"
-
-IDB_BUTTON_6            BITMAP                  "ButtonBMP\\square_blue\\button_6.bmp"
-
-IDB_BUTTON_7            BITMAP                  "ButtonBMP\\square_blue\\button_7.bmp"
-
-IDB_BUTTON_8            BITMAP                  "ButtonBMP\\square_blue\\button_8.bmp"
-
-IDB_BUTTON_9            BITMAP                  "ButtonBMP\\square_blue\\button_9.bmp"
-
-IDB_BUTTON_POINT        BITMAP                  "ButtonBMP\\square_blue\\button_point.bmp"
-
-IDB_BUTTON_PLUS         BITMAP                  "ButtonBMP\\square_blue\\button_plus.bmp"
-
-IDB_BUTTON_MINUS        BITMAP                  "ButtonBMP\\square_blue\\button_minus.bmp"
-
-IDB_BUTTON_ASTER        BITMAP                  "ButtonBMP\\square_blue\\button_aster.bmp"
-
-IDB_BUTTON_SLASH        BITMAP                  "ButtonBMP\\square_blue\\button_slash.bmp"
-
-IDB_BUTTON_BSP          BITMAP                  "ButtonBMP\\square_blue\\button_bsp.bmp"
-
-IDB_BUTTON_CLR          BITMAP                  "ButtonBMP\\square_blue\\button_clr.bmp"
-
-IDB_BUTTON_EQUAL        BITMAP                  "ButtonBMP\\square_blue\\button_equal.bmp"
+IDB_BUTTON_0            BITMAP                  "ButtonBMP\\metal_mistral\\button_0.bmp"
+                                                          
+IDB_BUTTON_1            BITMAP                  "ButtonBMP\\metal_mistral\\button_1.bmp"
+                                                           
+IDB_BUTTON_2            BITMAP                  "ButtonBMP\\metal_mistral\\button_2.bmp"
+                                                           
+IDB_BUTTON_3            BITMAP                  "ButtonBMP\\metal_mistral\\button_3.bmp"
+                                                           
+IDB_BUTTON_4            BITMAP                  "ButtonBMP\\metal_mistral\\button_4.bmp"
+                                                            
+IDB_BUTTON_5            BITMAP                  "ButtonBMP\\metal_mistral\\button_5.bmp"
+                                                           
+IDB_BUTTON_6            BITMAP                  "ButtonBMP\\metal_mistral\\button_6.bmp"
+                                                            
+IDB_BUTTON_7            BITMAP                  "ButtonBMP\\metal_mistral\\button_7.bmp"
+                                                           
+IDB_BUTTON_8            BITMAP                  "ButtonBMP\\metal_mistral\\button_8.bmp"
+                                                           
+IDB_BUTTON_9            BITMAP                  "ButtonBMP\\metal_mistral\\button_9.bmp"
+                                                           
+IDB_BUTTON_POINT        BITMAP                  "ButtonBMP\\metal_mistral\\button_point.bmp"
+                                                           
+IDB_BUTTON_PLUS         BITMAP                  "ButtonBMP\\metal_mistral\\button_plus.bmp"
+                                                           
+IDB_BUTTON_MINUS        BITMAP                  "ButtonBMP\\metal_mistral\\button_minus.bmp"
+                                                           
+IDB_BUTTON_ASTER        BITMAP                  "ButtonBMP\\metal_mistral\\button_aster.bmp"
+                                                            
+IDB_BUTTON_SLASH        BITMAP                  "ButtonBMP\\metal_mistral\\button_slash.bmp"
+                                                           
+IDB_BUTTON_BSP          BITMAP                  "ButtonBMP\\metal_mistral\\button_bsp.bmp"
+                                                           
+IDB_BUTTON_CLR          BITMAP                  "ButtonBMP\\metal_mistral\\button_clr.bmp"
+                                                            
+IDB_BUTTON_EQUAL        BITMAP                  "ButtonBMP\\metal_mistral\\button_equal.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
